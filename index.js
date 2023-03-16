@@ -88,6 +88,21 @@ Car.prototype.fill = function(gallons){
   return this.tank += gallons
 }
 
+const chevy = new Car('Chevy', 5 )
+
+chevy.fill(20)
+console.log(chevy)
+
+Car.prototype.drive = function(distance){
+  return 
+    this.odometer += distance
+    
+  
+}
+
+chevy.drive(10)
+console.log(chevy)
+
 
 /*
   TASK 3
@@ -97,8 +112,17 @@ Car.prototype.fill = function(gallons){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age)
+    this.name = name
+    this.age = age
+    this.favoriteToy = favoriteToy
+}
 
+Baby.prototype = Object.create(Person.prototype)
+
+Baby.prototype.play = function(){
+ return `Play with ${this.favoriteToy}`
 }
 
 
